@@ -1,28 +1,45 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+      <v-toolbar-title>vue-chartjs demo</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-tooltip left>
+        <template v-slot:activator="{ on }">
+          <v-btn
+            icon
+            x-large
+            href="https://www.npmjs.com/package/vue-chartjs"
+            v-on="on"
+          >
+            <v-icon x-large>mdi-npm</v-icon>
+          </v-btn>
+        </template>
+        <span>vue-chartjs npm website</span>
+      </v-tooltip>
+    </v-app-bar>
+
+    <v-content style="background-color: rgba(0, 0, 0, 0.065);">
+      <Home />
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Home from './components/Home';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  components: {
+    Home,
+  },
+
+  data: () => ({
+    //
+  }),
+};
+</script>
